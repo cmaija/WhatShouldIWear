@@ -1,0 +1,53 @@
+<div class = 'panel panel-primary'>
+    <div class = 'panel-heading'>
+        {{pageTitle}}
+    </div>
+    <div class = 'panel-body'>
+        <div class='row'>
+            <div class='col-md-2'>Filter by:</div>
+            <div class='col-md-4'>
+                <select>
+                    <option value="" disabled selected>Select a garment type</option>
+                    <option>Bib</option>
+                    <option>Jersey</option>
+                    <option>Jacket</option>
+                    <option>Warmer</option>
+                    <option>Cap</option>
+                    <option>Shoe Cover</option>
+                </select>
+            </div>
+        </div>
+        <div class='row'>
+            <div class='col-md-6'>
+                <h3>Filtered by:</h3>
+            </div>
+        </div>
+        <div class='table-responsive'>
+            <table class='table'
+                    *ngIf='garments && garments.length'>
+                <thead>
+                    <tr>
+                        <th>
+                            <button class='btn btn-primary'>
+                                Show Image
+                            </button>
+                        </th>
+                        <th>Garment</th>
+                        <th>Type</th>
+                        <th>Temperature Range</th>
+                        <th>Conditions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <tr *ngFor='let garment of garments'>
+                    <td></td>
+                    <td>{{garment.garment}}</td>
+                    <td>{{garment.type}}</td>
+                    <td>{{garment.temperature}}</td>
+                    <td>{{garment.conditions}}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
