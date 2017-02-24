@@ -6,7 +6,7 @@
         <div class='row'>
             <div class='col-md-2'>Filter by:</div>
             <div class='col-md-4'>
-                <select>
+                <select [(ngModel)]='listFilter'>
                     <option value="" disabled selected>Select a garment type</option>
                     <option>Bib</option>
                     <option>Jersey</option>
@@ -19,7 +19,7 @@
         </div>
         <div class='row'>
             <div class='col-md-6'>
-                <h3>Filtered by:</h3>
+                <h3>Filtered by: {{listFilter}}</h3>
             </div>
         </div>
         <div class='table-responsive'>
@@ -28,8 +28,8 @@
                 <thead>
                     <tr>
                         <th>
-                            <button class='btn btn-primary'>
-                                Show Image
+                            <button class='btn btn-primary' (click)='toggleImage()'>
+                                {{showImage ? 'Hide' : 'Show'}} Image
                             </button>
                         </th>
                         <th>Garment</th>
@@ -40,7 +40,13 @@
                 </thead>
                 <tbody>
                 <tr *ngFor='let garment of garments'>
-                    <td></td>
+                    <td>
+                        <img *ngIf='showImage'
+                            [src]='garment.imageUrl'
+                            [title]='garment.garment'
+                            [style.width.px]='imageWidth'
+                            [style.margin.px]='imageMargin'>
+                    </td>
                     <td>{{garment.garment}}</td>
                     <td>{{garment.type}}</td>
                     <td>{{garment.temperature}}</td>

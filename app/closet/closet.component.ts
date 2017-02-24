@@ -3,6 +3,7 @@
  */
 import {Component} from '@angular/core';
 
+
 @Component({
     selector: 'pm-closet',
     templateUrl: 'app/closet/closet.component.html'
@@ -10,6 +11,10 @@ import {Component} from '@angular/core';
 
 export class ClosetComponent {
     pageTitle: string = 'Your Closet';
+    imageWidth: number = 50;
+    imageMargin: number = 2;
+    showImage: boolean = false;
+    listFilter: string = 'cart';
     garments: any[] = [
         {
             "garmentId": 1,
@@ -39,4 +44,8 @@ export class ClosetComponent {
             "imageUrl": "https://static.evanscycles.com/production/clothing/gilets--vests/product-image/969-638/castelli-velo-windbreaker-vest-black-Black-EV217224-8500-2.jpg"
         }
     ];
+
+    toggleImage(): void {
+        this.showImage = !this.showImage;
+    }
 }
